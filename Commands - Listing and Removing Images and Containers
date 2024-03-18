@@ -1,0 +1,48 @@
+
+1. ## Running a Web Server in a Docker Container ##
+2. docker container run -d --p 80:80 --name mysite1 nginx  
+3. docker container run -d --p 8080:80 --name mysite2 nginx  
+4. docker container run -d --p 8081:80 --name mysite3 nginx  
+5.  
+6. # -d     => detach and run in the background
+7. # --name => container name, must be unique, randomly chosen from a list if it's not given
+8. # -p X:Y => publish a container's port to the host 
+9. # process listens on port Y in the container but is accessed on port X from the outside (LAN/Internet)
+10. # -P     => publish all exposed ports to random ports
+11.  
+12. # listing local images
+13. docker images   # old command
+14. docker image ls # new command
+15.  
+16. # listing all running containers
+17. docker ps               # old command
+18. docker container ls     # new command
+19. # -q => printing only the containers' ids
+20.  
+21. # listing all containers (created, running, stopped)
+22. docker ps -a
+23. docker container ls -a
+24.  
+25. # filtering by status
+26. docker container ls -a -f status=exited
+27.  
+28. # stopping a container
+29. docker container stop CONTAINER_ID|CONTAINER_NAME
+30. Example: docker container stop mysite1
+31.  
+32. # removing a container (must be stopped)
+33. docker container rm CONTAINER_ID|CONTAINER_NAME
+34. # -f => force remove the container (can be running)
+35. Example: docker container rm mysite1
+36.  
+37. # removing all stopped containers
+38. docker container rm $(docker container ls -f status=exited -q)
+39.  
+40. # removing an image
+41. docker rmi IMAGE_NAME       # => old command
+42. docker image rm IMAGE_NAME  # => new command
+43. Example: docker image rm nginx
+44.  
+45. # removing dangling images, stopped containers, dangling build cache and networks not used
+46. docker system prune
+47. # -a => remove unused images, as well

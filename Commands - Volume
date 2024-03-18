@@ -1,0 +1,30 @@
+
+1. # creating a new volume
+2. docker volume create mysite
+3.  
+4. # listing all volumes
+5. docker volume ls
+6.  
+7. # inspecting a volume
+8. docker volume inspect mysite
+9.  
+10. # removing a volume
+11. docker volume rm mysite
+12. docker volume prune     # => remove all unused volumes
+13.  
+14. # starting a container with the volume
+15. docker container run -d --name mywebapp -p 80:80 -v mysite:/usr/share/nginx/html nginx1. # creating a new volume
+2. docker volume create mysite
+3.  
+4. # listing all volumes
+5. docker volume ls
+6.  
+7. # inspecting a volume
+8. docker volume inspect mysite
+9.  
+10. # removing a volume
+11. docker volume rm mysite
+12. docker volume prune     # => remove all unused volumes
+13.  
+14. # starting a container with the volume
+15. docker container run -d --name mywebapp -p 80:80 -v mysite:/usr/share/nginx/html nginx

@@ -1,0 +1,38 @@
+1. ## The Docker CLI ##
+2. ## Pulling Images and Running Containers ##
+3. 
+4. # testing the entire installing
+5. docker --version
+6. docker version
+7. docker info
+8. docker container run hello-world
+9. 
+10. # getting help
+11. docker help
+12. docker MANAGEMENT_COMMAND help => Ex: docker container help
+13. 
+14. # searching for an image on Docker Hub
+15. ## docker search IMAGE_NAME
+16. docker search debian
+17. docker search mongo
+18. 
+19. # pulling an image from docker hub
+20. ## docker image pull IMAGE_NAME:TAG
+21. docker image pull redis:5.0.10
+22. docker image pull ubuntu:latest
+23. docker image pull mysql # => by default tha name of the TAG is latest
+24. 
+25. # listing local images
+26. docker images
+27. docker image ls
+28. 
+29. # running a container
+30. ## docker container run OPTIONS IMAGE_NAME
+31. docker container run -P httpd
+32. # equivalent to:
+33. docker container create -P httpd
+34. docker container ls -a # listing all containers
+35. docker container start CONTAINER_ID
+36. 
+37. # getting a shell into a container
+38. docker container run -it centos # to detach from the container without stopping it press: Ctrl + P + Q

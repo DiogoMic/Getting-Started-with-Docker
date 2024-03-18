@@ -1,0 +1,30 @@
+
+1. ### Installing Docker on Ubuntu ###
+2.  
+3. # uninstalling any old versions
+4. sudo apt remove docker docker.io containerd runc
+5.  
+6.  
+7. #  adding Docker’s official GPG signing key:
+8. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+9.  
+10.  
+11. # adding the official docker repository 
+12. sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+13.  
+14. # refreshing the apt cache
+15. sudo apt update
+16.  
+17. # selecting the docker repository as the default one
+18. apt-cache policy docker-ce
+19.  
+20. # installing docker
+21. sudo apt install docker-ce docker-ce-cli containerd.io
+22.  
+23. # checking its status
+24. sudo systemctl status docker
+25.  
+26. # adding the current user to the docker group to be able to run the docker command
+27. sudo usermod -aG docker ${USER}
+28.  
+29. docker --version
